@@ -18,7 +18,10 @@ def strip_trailing_zeros(value: str) -> str:
     :param value: Value to be stripped
     :return: Stripped value
     """
-    return value.rstrip("0").rstrip(".")
+    result = value.rstrip("0").rstrip(".")
+    if result in ("", "-"):
+        return "0"
+    return result
 
 
 def round_value(value: float, decimals: int, keep_trailing_zeros=False) -> str:
